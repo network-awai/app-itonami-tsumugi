@@ -136,7 +136,7 @@
   "One-line human summary of a flow-state. Pure."
   [{:keys [flows-n net-gain order-index agent-efficiency throughput]}]
   (str flows-n " edges · throughput=" (long throughput)
-       " · net-gain=" (format "%.1f" (double net-gain))
-       " · order-index=" (format "%.3f" (double order-index))
-       " · agent-eff=" (if (Double/isInfinite (double agent-efficiency))
-                         "∞" (format "%.2f" (double agent-efficiency)))))
+       " · net-gain=" (str/format "%.1f" (double net-gain))
+       " · order-index=" (str/format "%.3f" (double order-index))
+       " · agent-eff=" (if #?(:clj (Double/isInfinite (double agent-efficiency)) :cljs (infinite? (double agent-efficiency)))
+                         "∞" (str/format "%.2f" (double agent-efficiency)))))
