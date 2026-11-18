@@ -1,4 +1,4 @@
-# com-etzhayyim-tsumugi repository rules
+# app-itonami-tsumugi repository rules
 
 - This is an independent flat-path west repository.
 - EDN is canonical for metadata, contracts, graphs, DNA, and state. Tracked JSON

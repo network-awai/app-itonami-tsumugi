@@ -339,7 +339,7 @@
             "> **Mirror of DECLARED public alignment. Non-adjudicating. Person-excluded. Plural.**"
             "> Alignment is EDGE-PRIMARY (no score-of-conviction). Basis is always on-the-record"
             "> (self-declared / public-stated / vote / membership) — never imputed. A banner is a"
-            "> standard flown, NEVER a danger-classification. etzhayyim discloses its OWN banner."
+            "> standard flown, NEVER a danger-classification. itonami discloses its OWN banner."
             ""
             (str "banners: " (get result "banner_count") " · entities: " (get result "ent_count") " · "
                  "alignments: " (get result "flies_count"))

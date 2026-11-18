@@ -1,7 +1,7 @@
 # tsumugi-core — the tsumugi actor as a content-addressed WASM component.
 # Per ADR-2606014500 (one-Worker WASM-actor model). The compiled
 # wasm32-unknown-unknown artifact is published to IPFS; its CID is carried in
-# the actor's DID document (service type EtzhayyimWasmComponent) and the
+# the actor's DID document (service type ItonamiWasmComponent) and the
 # browser (ameno) / donated mesh node fetches + executes it locally. NO server.
 #
 # Empty [workspace] table makes this crate standalone so it is never captured

@@ -6,9 +6,9 @@
 <title>tsumugi 紡ぎ — WASM actor (browser-local)</title>
 <!--
   Browser loader PoC for the "one Worker, many WASM actors" model (ADR-2606014500).
-  The ONLY first-party server is etzhayyim.com (identity/did.json). This page:
+  The ONLY first-party server is itonami.cloud (identity/did.json). This page:
     1. resolves the actor DID document
-    2. reads the EtzhayyimWasmComponent service → ipfs://<cid>
+    2. reads the ItonamiWasmComponent service → ipfs://<cid>
     3. fetches the WASM (IPFS gateway / local)
     4. verifies content integrity (recompute CIDv1, compare to the DID doc CID)
     5. instantiates + runs it LOCALLY in the browser — no per-actor server, no inference here
@@ -39,7 +39,7 @@ footer{margin-top:2rem;font-size:.82rem;opacity:.7}
 </head>
 <body>
 <h1>紡ぎ tsumugi — WASM actor, browser-local</h1>
-<p class="sub">No per-actor server. <code>etzhayyim.com</code> serves only the DID; the actor itself is a content-addressed WASM component fetched from IPFS and executed here, in your browser. Per ADR-2606014500.</p>
+<p class="sub">No per-actor server. <code>itonami.cloud</code> serves only the DID; the actor itself is a content-addressed WASM component fetched from IPFS and executed here, in your browser. Per ADR-2606014500.</p>
 
 <div class="row">
   <label>DID document <input id="didUrl" value="../../wire/wasm/tsumugi.did.json"></label>
@@ -48,7 +48,7 @@ footer{margin-top:2rem;font-size:.82rem;opacity:.7}
   <label>WASM source <input id="wasmUrl" value="./tsumugi-core.wasm"></label>
   <button id="run">Resolve → verify → run</button>
 </div>
-<p class="sub" id="hint">Live equivalents: DID <code>https://etzhayyim.com/actor/tsumugi/did.json</code> · WASM <code>https://etzhayyim.com/ipfs/&lt;cid&gt;</code> (trustless gateway).</p>
+<p class="sub" id="hint">Live equivalents: DID <code>https://itonami.cloud/actor/tsumugi/did.json</code> · WASM <code>https://itonami.cloud/ipfs/&lt;cid&gt;</code> (trustless gateway).</p>
 
 <ol id="steps"></ol>
 <div id="result"></div>
@@ -95,9 +95,9 @@ async function run() {
     setOk(li, `DID resolved: <code>${did.id}</code>`);
 
     // 2) find WASM component service
-    li = step("Finding EtzhayyimWasmComponent service…");
-    const svc = (did.service || []).find((s) => s.type === "EtzhayyimWasmComponent");
-    if (!svc) throw new Error("no EtzhayyimWasmComponent service in DID doc");
+    li = step("Finding ItonamiWasmComponent service…");
+    const svc = (did.service || []).find((s) => s.type === "ItonamiWasmComponent");
+    if (!svc) throw new Error("no ItonamiWasmComponent service in DID doc");
     const cid = svc.serviceEndpoint.replace(/^ipfs:\/\//, "");
     setOk(li, `WASM component: <code>ipfs://${cid}</code>`);
 

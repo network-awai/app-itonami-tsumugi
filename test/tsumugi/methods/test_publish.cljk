@@ -23,24 +23,24 @@
 (def fixture-result {"localities" [{"locality" "jp.x" "concentration" 2.0 "sector_diversity" 2}]})
 
 (def expected-nt
-  ["<https://etzhayyim.com/id/power/org.a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://etzhayyim.com/ns/power#Org> ."
-   "<https://etzhayyim.com/id/power/org.a> <http://www.w3.org/2000/01/rdf-schema#label> \"Alpha\" ."
-   "<https://etzhayyim.com/id/power/org.a> <https://etzhayyim.com/ns/power#scale> \"national\" ."
-   "<https://etzhayyim.com/id/power/org.a> <https://etzhayyim.com/ns/power#sector> \"san\" ."
-   "<https://etzhayyim.com/id/power/org.a> <https://etzhayyim.com/ns/power#locality> \"jp.x\" ."
-   "<https://etzhayyim.com/id/power/org.a> <https://etzhayyim.com/ns/power#collectiveKind> \"org\" ."
-   "<https://etzhayyim.com/id/power/org.a> <https://etzhayyim.com/ns/power#sourcing> \"representative\" ."
-   "<https://etzhayyim.com/id/power/seat.b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://etzhayyim.com/ns/power#PublicSeat> ."
-   "<https://etzhayyim.com/id/power/seat.b> <http://www.w3.org/2000/01/rdf-schema#label> \"Beta seat\" ."
-   "<https://etzhayyim.com/id/power/seat.b> <https://etzhayyim.com/ns/power#scale> \"municipal\" ."
-   "<https://etzhayyim.com/id/power/seat.b> <https://etzhayyim.com/ns/power#sector> \"kan\" ."
-   "<https://etzhayyim.com/id/power/seat.b> <https://etzhayyim.com/ns/power#locality> \"jp.x\" ."
-   "<https://etzhayyim.com/id/power/org.a> <https://etzhayyim.com/ns/power#funds> <https://etzhayyim.com/id/power/seat.b> ."
-   "<https://etzhayyim.com/id/power/locality/jp.x> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://etzhayyim.com/ns/power#Locality> ."
-   "<https://etzhayyim.com/id/power/locality/jp.x> <http://www.w3.org/2000/01/rdf-schema#label> \"jp.x\" ."
-   "<https://etzhayyim.com/id/power/locality/jp.x> <https://etzhayyim.com/ns/power#concentration> \"2.0\"^^<http://www.w3.org/2001/XMLSchema#decimal> ."
-   "<https://etzhayyim.com/id/power/locality/jp.x> <https://etzhayyim.com/ns/power#sectorDiversity> \"2\"^^<http://www.w3.org/2001/XMLSchema#integer> ."
-   "<https://etzhayyim.com/id/power/locality/jp.x> <https://etzhayyim.com/ns/power#derivedBy> \"did:web:etzhayyim.com:actor:tsumugi\" ."])
+  ["<https://itonami.cloud/id/power/org.a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://itonami.cloud/ns/power#Org> ."
+   "<https://itonami.cloud/id/power/org.a> <http://www.w3.org/2000/01/rdf-schema#label> \"Alpha\" ."
+   "<https://itonami.cloud/id/power/org.a> <https://itonami.cloud/ns/power#scale> \"national\" ."
+   "<https://itonami.cloud/id/power/org.a> <https://itonami.cloud/ns/power#sector> \"san\" ."
+   "<https://itonami.cloud/id/power/org.a> <https://itonami.cloud/ns/power#locality> \"jp.x\" ."
+   "<https://itonami.cloud/id/power/org.a> <https://itonami.cloud/ns/power#collectiveKind> \"org\" ."
+   "<https://itonami.cloud/id/power/org.a> <https://itonami.cloud/ns/power#sourcing> \"representative\" ."
+   "<https://itonami.cloud/id/power/seat.b> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://itonami.cloud/ns/power#PublicSeat> ."
+   "<https://itonami.cloud/id/power/seat.b> <http://www.w3.org/2000/01/rdf-schema#label> \"Beta seat\" ."
+   "<https://itonami.cloud/id/power/seat.b> <https://itonami.cloud/ns/power#scale> \"municipal\" ."
+   "<https://itonami.cloud/id/power/seat.b> <https://itonami.cloud/ns/power#sector> \"kan\" ."
+   "<https://itonami.cloud/id/power/seat.b> <https://itonami.cloud/ns/power#locality> \"jp.x\" ."
+   "<https://itonami.cloud/id/power/org.a> <https://itonami.cloud/ns/power#funds> <https://itonami.cloud/id/power/seat.b> ."
+   "<https://itonami.cloud/id/power/locality/jp.x> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://itonami.cloud/ns/power#Locality> ."
+   "<https://itonami.cloud/id/power/locality/jp.x> <http://www.w3.org/2000/01/rdf-schema#label> \"jp.x\" ."
+   "<https://itonami.cloud/id/power/locality/jp.x> <https://itonami.cloud/ns/power#concentration> \"2.0\"^^<http://www.w3.org/2001/XMLSchema#decimal> ."
+   "<https://itonami.cloud/id/power/locality/jp.x> <https://itonami.cloud/ns/power#sectorDiversity> \"2\"^^<http://www.w3.org/2001/XMLSchema#integer> ."
+   "<https://itonami.cloud/id/power/locality/jp.x> <https://itonami.cloud/ns/power#derivedBy> \"did:web:itonami.cloud:actor:tsumugi\" ."])
 
 (deftest triples-byte-identical-on-fixture
   (is (= expected-nt (pub/build-triples fixture-nodes fixture-ties fixture-result))))
@@ -57,11 +57,11 @@
   (let [jl (pub/build-jsonld fixture-nodes fixture-ties fixture-result)
         n0 (first (get jl "@graph"))]
     (is (= 3 (count (get jl "@graph"))))
-    (is (= "https://etzhayyim.com/id/power/org.a" (get n0 "@id")))
+    (is (= "https://itonami.cloud/id/power/org.a" (get n0 "@id")))
     (is (= "epw:Org" (get n0 "@type")))
     (is (= "Alpha" (get n0 "rdfs:label")))
     (is (= "national" (get n0 "epw:scale")))
-    (is (= [{"@id" "https://etzhayyim.com/id/power/seat.b"}] (get n0 "epw:funds")))))
+    (is (= [{"@id" "https://itonami.cloud/id/power/seat.b"}] (get n0 "epw:funds")))))
 
 (deftest real-seed-counts
   (let [[nodes ties] (a/load-graph "data/seed-scale-power.kotoba.edn")

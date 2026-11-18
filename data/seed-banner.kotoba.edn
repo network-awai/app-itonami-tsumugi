@@ -28,8 +28,8 @@
  {:banner/id "banner.global.protectionism" :banner/label "保護主義 (protectionism)" :banner/kind :policy-stance :banner/axis "自由貿易↔保護主義" :banner/thought-stream :stream/mercantilist :banner/sourcing :representative}
  {:banner/id "banner.jp.monetary-easing" :banner/label "金融緩和 (monetary easing)" :banner/kind :policy-stance :banner/axis "緩和↔引締" :banner/sourcing :representative}
  {:banner/id "banner.jp.monetary-tightening" :banner/label "金融引締 (monetary tightening)" :banner/kind :policy-stance :banner/axis "緩和↔引締" :banner/sourcing :representative}
- ;; the one banner etzhayyim itself flies (H5 — inbound-only, disclosed not projected)
- {:banner/id "banner.etzhayyim.charter" :banner/label "etzhayyim Charter genealogy (Sola Scriptura/万人祭司/Tree of Life + 八百万/縁起/産霊/和)" :banner/kind :doctrinal :banner/thought-stream :stream/etzhayyim-synthesis :banner/sourcing :authoritative}
+ ;; the one banner itonami itself flies (H5 — inbound-only, disclosed not projected)
+ {:banner/id "banner.itonami.charter" :banner/label "itonami Charter genealogy (Sola Scriptura/万人祭司/Tree of Life + 八百万/縁起/産霊/和)" :banner/kind :doctrinal :banner/thought-stream :stream/itonami-synthesis :banner/sourcing :authoritative}
 
  ;; ───────────────────────── entities (public orgs / seats / self) ─────────────────────────
  ;; H4 — institutional / public-seat / self only. Representative public political parties
@@ -39,7 +39,7 @@
  {:ent/id "org.party.jp.c"   :ent/label "(representative) 政党C — 中道 (flies both)" :ent/standing :institutional}
  ;; wave 9 — first NON-party flier: an industry federation (still institutional, H4-clean)
  {:ent/id "org.federation.x" :ent/label "(representative) 産業連盟X" :ent/standing :institutional}
- {:ent/id "self.etzhayyim"   :ent/label "etzhayyim (this entity)" :ent/standing :self}
+ {:ent/id "self.itonami"   :ent/label "itonami (this entity)" :ent/standing :self}
 
  ;; ───────────────────────── :flies alignment 縁 (H1 basis, H3 weight, H7 ≥2 sources) ─────────────────────────
  {:flies/id "flies.a.kaisei" :flies/who "org.party.jp.ldp" :flies/banner "banner.jp.kenpou-kaisei" :flies/basis :self-declared :flies/weight 0.85 :flies/sources ["政党A 公式 綱領 (公開)" "政党A 選挙公約 (公開)"] :flies/sourcing :representative}
@@ -60,5 +60,5 @@
  {:flies/id "flies.a.easing" :flies/who "org.party.jp.ldp" :flies/banner "banner.jp.monetary-easing" :flies/basis :self-declared :flies/weight 0.58 :flies/sources ["政党A 経済政策 (公開)" "政党A 公約 (公開)"] :flies/sourcing :representative}
  {:flies/id "flies.c.tightening" :flies/who "org.party.jp.c" :flies/banner "banner.jp.monetary-tightening" :flies/basis :public-stated :flies/weight 0.40 :flies/sources ["政党C 経済政策集 (公開)" "政党C 党首会見 記録 (公開)"] :flies/sourcing :representative}
 
- ;; H5 — etzhayyim discloses its OWN banner, inbound-only (never projected over others)
- {:flies/id "flies.self.charter" :flies/who "self.etzhayyim" :flies/banner "banner.etzhayyim.charter" :flies/basis :self-declared :flies/weight 1.0 :flies/inbound-only true :flies/sources ["90-docs/adr/2605192100 (Charter)" "CHARTER-RIDER.md"] :flies/sourcing :authoritative}]
+ ;; H5 — itonami discloses its OWN banner, inbound-only (never projected over others)
+ {:flies/id "flies.self.charter" :flies/who "self.itonami" :flies/banner "banner.itonami.charter" :flies/basis :self-declared :flies/weight 1.0 :flies/inbound-only true :flies/sources ["90-docs/adr/2605192100 (Charter)" "CHARTER-RIDER.md"] :flies/sourcing :authoritative}]

@@ -21,7 +21,7 @@
            [java.util.zip GZIPOutputStream GZIPInputStream]))
 
 (def DATA-DIR "80-data/tsumugi-power")
-(def APEX-PUBLIC "50-infra/etzhayyim-did-web/public")
+(def APEX-PUBLIC "50-infra/itonami-did-web/public")
 (def PUBLISHED-AT "2026-06-11")
 (def GATEWAYS ["https://ipfs.io/ipfs/" "https://dweb.link/ipfs/" "https://cloudflare-ipfs.com/ipfs/"])
 (def ^:private SINGLE-BLOCK (* 256 1024))
@@ -45,18 +45,18 @@
 (defn- vocab-jsonld []
   (let [terms {"Org" "an organisation / 法人 / institution (a power-holding collective)"
                "PublicSeat" "a public-power SEAT (chair/exec/official) — never a private individual (S2)"
-               "Locality" "a place cluster bearing an etzhayyim-derived 産官学報 concentration readout"
+               "Locality" "a place cluster bearing an itonami-derived 産官学報 concentration readout"
                "custodies" "parent organisation controls/owns the object (P749-grade)"
                "dependsOn" "supply / funding / IP dependency"
-               "concentration" "etzhayyim-DERIVED 産官学報 cross-sector concentration (edge-primary integral × diversity)"
+               "concentration" "itonami-DERIVED 産官学報 cross-sector concentration (edge-primary integral × diversity)"
                "scale" "global→supranational→national→regional→municipal→local→intra-org"
                "sector" "産官学報民金"
                "collectiveKind" "組織/地域/市区町村/コミュニティ/社内派閥/学閥/系列/審議会"
-               "derivedBy" "the DID that authored this (etzhayyim-original) assertion"}]
+               "derivedBy" "the DID that authored this (itonami-original) assertion"}]
     (json/generate-string
      {"@context" {"@vocab" publish/NS "rdfs" "http://www.w3.org/2000/01/rdf-schema#"}
       "@id" publish/NS "@type" "owl:Ontology"
-      "rdfs:label" "etzhayyim power-dynamics vocabulary (tsumugi 紡ぎ)"
+      "rdfs:label" "itonami power-dynamics vocabulary (tsumugi 紡ぎ)"
       "rdfs:comment" (str "Self-sovereign linked-data vocabulary. Dataset: /dataset/tsumugi-power.json. "
                           "License: " publish/LICENSE ". Publisher: " publish/PUBLISHER-DID)
       "terms" (into {} (map (fn [[k v]] [(str publish/NS k) v]) terms))}
@@ -72,8 +72,8 @@
   (let [tmp (str (java.io.File/createTempFile "tsumugi-pub" ""))
         _ (do (.delete (io/file tmp)) (.mkdirs (io/file tmp)))
         manifest (publish/publish tmp seed)
-        nt (kbytes/utf8-bytes (slurp (str tmp "/etzhayyim-power-graph.nt")))
-        jsonld (kbytes/utf8-bytes (slurp (str tmp "/etzhayyim-power-graph.jsonld")))
+        nt (kbytes/utf8-bytes (slurp (str tmp "/itonami-power-graph.nt")))
+        jsonld (kbytes/utf8-bytes (slurp (str tmp "/itonami-power-graph.jsonld")))
         edn (kbytes/utf8-bytes (slurp (str "data/seed-scale-power.kotoba.edn")))
         _ (io/make-parents (str data-dir "/x"))
         artifacts (reduce
@@ -134,4 +134,4 @@
          (println (str "[tsumugi/pin] 80-data/tsumugi-power/ — " (count arts)
                        " artifacts content-addressed to IPFS CIDv1:"))
          (doseq [v arts] (println (str "    " (get v "file") "  " (get v "bytes") "B  " (get v "cid"))))
-         (println "  served: https://etzhayyim.com/ns/power · /dataset/tsumugi-power.json (next deploy)")))))
+         (println "  served: https://itonami.cloud/ns/power · /dataset/tsumugi-power.json (next deploy)")))))

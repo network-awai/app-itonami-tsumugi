@@ -2,12 +2,12 @@
   "tsumugi 紡ぎ — PUBLISH the woven power-graph as self-sovereign linked data.
   Clojure port of methods/publish.py (1:1). ADR-2606092000.
 
-  etzhayyim becomes a DATA PROVIDER: it publishes its woven power-graph under its OWN
+  itonami becomes a DATA PROVIDER: it publishes its woven power-graph under its OWN
   resolvable vocabulary (epw:) so anyone can load it into a triplestore and federate.
   Self-sovereign — the dataset is content-addressed (sha256 over the canonical N-Triples
   is its identity), licensed, provenance-honest (G5).
 
-  Emits (local files): etzhayyim-power-graph.{nt,jsonld} + dataset-manifest.json. NOT IPFS,
+  Emits (local files): itonami-power-graph.{nt,jsonld} + dataset-manifest.json. NOT IPFS,
   NOT a network publish. stdlib only; its only dependency is the already-ported analyze-scale
   (load-graph + analyze). SHA-256 via java.security.MessageDigest; file I/O at the #?(:clj) edge."
   (:require [kotoba.bytes :as kbytes] [kotoba.lang.text :as str]
@@ -15,13 +15,13 @@
             #?(:clj [clojure.java.io :as io]))
   #?(:clj (:import [java.security MessageDigest])))
 
-(def ^:private NS "https://etzhayyim.com/ns/power#")
-(def ^:private ID "https://etzhayyim.com/id/power/")
+(def ^:private NS "https://itonami.cloud/ns/power#")
+(def ^:private ID "https://itonami.cloud/id/power/")
 (def ^:private RDF "http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 (def ^:private RDFS "http://www.w3.org/2000/01/rdf-schema#")
 (def ^:private XSD "http://www.w3.org/2001/XMLSchema#")
-(def ^:private PUBLISHER-DID "did:web:etzhayyim.com:actor:tsumugi")
-(def LICENSE "Apache-2.0 + etzhayyim Charter Compliance Rider v3.1 (/CHARTER-RIDER.md)")
+(def ^:private PUBLISHER-DID "did:web:itonami.cloud:actor:tsumugi")
+(def LICENSE "Apache-2.0 + itonami Charter Compliance Rider v3.1 (/CHARTER-RIDER.md)")
 
 (def ^:private SCALE-JA
   {":san" "industry/産" ":kan" "government/官" ":gaku" "academia/学"
@@ -41,7 +41,7 @@
 (defn- t-typed [s p o typ] (str "<" s "> <" p "> \"" (esc o) "\"^^<" typ "> ."))
 
 (defn build-triples
-  "Return N-Triples lines: org/seat nodes + relations + the etzhayyim-DERIVED per-locality
+  "Return N-Triples lines: org/seat nodes + relations + the itonami-DERIVED per-locality
   concentration layer. Person-excluded by construction (S2 holds upstream)."
   [nodes ties result]
   (let [node-lines
@@ -77,7 +77,7 @@
     (vec (concat node-lines tie-lines loc-lines))))
 
 (defn build-jsonld
-  "JSON-LD @graph over the etzhayyim vocabulary."
+  "JSON-LD @graph over the itonami vocabulary."
   [nodes ties result]
   (let [out-edges (reduce (fn [acc tie]
                             (let [f (get tie ":tie/from") to (get tie ":tie/to")
@@ -126,9 +126,9 @@
                                           (contains? nodes (get t ":tie/to"))
                                           (contains? TIE-PRED (get t ":tie/kind")))) ties))]
     {"@type" "dcat:Dataset"
-     "title" "etzhayyim power-dynamics knowledge graph (tsumugi 紡ぎ)"
+     "title" "itonami power-dynamics knowledge graph (tsumugi 紡ぎ)"
      "description" (str "A self-sovereign linked-data power-graph: organisations + their custody/"
-                        "dependency 縁, enriched with etzhayyim's original 産官学報 cross-sector "
+                        "dependency 縁, enriched with itonami's original 産官学報 cross-sector "
                         "concentration, scale, collective-kind, and vertical-integration layers.")
      "publisher" PUBLISHER-DID
      "license" LICENSE
@@ -141,15 +141,15 @@
      "provenance" {"upstreamSources" ["Wikidata (P749 parent organization, WDQS)"
                                        "GLEIF Level-2 Relationship Records (api.gleif.org)"
                                        "curated structural-public facts (:representative)"]
-                   "etzhayyimDerived" ["産官学報 cross-sector concentration (epw:concentration)"
+                   "itonamiDerived" ["産官学報 cross-sector concentration (epw:concentration)"
                                        "scale / sector / collective-kind enrichment"
                                        "vertical integration across scales"
                                        "旗 hata ideology/faction (separate dataset)"]
                    "note" (str "Per-edge citations are preserved in the canonical kotoba-EDN seed. "
-                               "Derived layers are etzhayyim's authored contribution (not in any upstream).")}
+                               "Derived layers are itonami's authored contribution (not in any upstream).")}
      "gates" (str "S1 edge-primary · S2 person-excluded (institutional/public-seat only) · "
                   "S5 non-adjudicating (no verdict predicate) · G5 sourcing-honest")
-     "interop" {"jsonld" "etzhayyim-power-graph.jsonld" "ntriples" "etzhayyim-power-graph.nt"
+     "interop" {"jsonld" "itonami-power-graph.jsonld" "ntriples" "itonami-power-graph.nt"
                 "canonical" "data/seed-scale-power.kotoba.edn (kotoba Datom EDN)"}}))
 
 #?(:clj
@@ -164,15 +164,15 @@
             jsonld (build-jsonld nodes ties result)
             manifest (build-manifest nodes ties result nt)]
         (io/make-parents (str out-dir "/x"))
-        (spit (str out-dir "/etzhayyim-power-graph.nt") (str (str/join "\n" nt) "\n"))
-        (spit (str out-dir "/etzhayyim-power-graph.jsonld") (pr-str jsonld))
+        (spit (str out-dir "/itonami-power-graph.nt") (str (str/join "\n" nt) "\n"))
+        (spit (str out-dir "/itonami-power-graph.jsonld") (pr-str jsonld))
         (spit (str out-dir "/dataset-manifest.json") (pr-str manifest))
         manifest))))
 
 #?(:clj
    (defn -main
      "CLI entry: mirrors publish.main — serialize the power-graph as N-Triples + JSON-LD +
-     a content-addressed dataset-manifest.json (etzhayyim as a power-data PROVIDER). All offline
+     a content-addressed dataset-manifest.json (itonami as a power-data PROVIDER). All offline
      serialization (no network); IPFS pin is publish_ipfs (separate). ADR-2606261200."
      [& argv]
      (let [argv (vec argv)
@@ -183,7 +183,7 @@
            m    (publish (.getPath out))
            ch   (str (or (get m :contentHash) (get m "contentHash")))
            cnt  (or (get m :counts) (get m "counts"))]
-       (println (str "[tsumugi/publish] etzhayyim is now a power-data PROVIDER — "
+       (println (str "[tsumugi/publish] itonami is now a power-data PROVIDER — "
                      (or (get cnt :nodes) (get cnt "nodes")) " nodes / "
                      (or (get cnt :triples) (get cnt "triples")) " triples / "
-                     (subs ch 0 (min 23 (count ch))) "… → out/etzhayyim-power-graph.{nt,jsonld} + dataset-manifest.json")))))
+                     (subs ch 0 (min 23 (count ch))) "… → out/itonami-power-graph.{nt,jsonld} + dataset-manifest.json")))))

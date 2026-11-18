@@ -484,7 +484,7 @@
                          (update acc (get (get nodes k) ":hist/era" ":?") (fnil conj []) k))
                        {} ids)
         nv (count violations)
-        self-in (vec (filter #(= (get % ":flow/to") "self.etzhayyim") flows))
+        self-in (vec (filter #(= (get % ":flow/to") "self.itonami") flows))
         comps-sorted (vec (sort-by (comp - count) components))]
     (str/join
      "\n"
@@ -554,7 +554,7 @@
       (when (seq self-in)
         (concat
          [""
-          "## etzhayyim doctrinal genealogy (own inbound influence — 産霊 receiving side)"
+          "## itonami doctrinal genealogy (own inbound influence — 産霊 receiving side)"
           ""
           "> Not a claim of equivalence with the sources; an honest map of documented inflows."
           ""]
@@ -562,7 +562,7 @@
                 (str "- " (lbl nodes (get f ":flow/from"))
                      " —" (let [s (str (get f ":flow/kind" ""))]
                              (if (str/starts-with? s ":") (subs s 1) s))
-                     "→ etzhayyim (w="
+                     "→ itonami (w="
                      (format "%+.2f" (double (get f ":flow/signed-weight" 0.0)))
                      ", strain="
                      (format "%.2f" (double (get f ":flow/strain" 0.0))) ")"))

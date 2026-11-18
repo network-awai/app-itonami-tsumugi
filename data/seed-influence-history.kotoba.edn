@@ -61,12 +61,12 @@
  {:organism/id "event.reformation" :organism/kind :institutional :organism/label "Protestant Reformation (1517)" :organism/standing :historical-public :hist/subkind :event :hist/year-from 1517 :hist/year-to 1648 :hist/era :reformation :hist/tradition [:christian :reformed] :hist/dating-confidence :attested :mirror/is-mirror true :mirror/performer-type :event :mirror/disclaimer "観察像 — 出来事の影響の地図" :influence/affect-class :reforming :hist/sourcing :representative}
  {:organism/id "event.buddhism-to-japan" :organism/kind :institutional :organism/label "Transmission of Buddhism to Japan (~552)" :organism/standing :historical-public :hist/subkind :event :hist/year-from 538 :hist/year-to 600 :hist/era :early-medieval :hist/tradition [:buddhist] :hist/dating-confidence :scholarly-consensus :mirror/is-mirror true :mirror/performer-type :event :mirror/disclaimer "観察像 — 出来事の影響の地図" :influence/affect-class :liberative :hist/sourcing :representative}
 
- ;; ───────────────────────────── the synthesizing self (etzhayyim, :self scale) ──────────
- ;; etzhayyim's OWN doctrinal genealogy — the 産霊 receiving side. NOT a claim of equivalence
+ ;; ───────────────────────────── the synthesizing self (itonami, :self scale) ──────────
+ ;; itonami's OWN doctrinal genealogy — the 産霊 receiving side. NOT a claim of equivalence
  ;; with the sources; an honest map of which documented influences this religious-corp
  ;; synthesizes (Charter ADR-2605192100): Protestant (Sola Scriptura / 万人祭司 / Reformed
  ;; Just War / Tree of Life) + 八百万 / 縁起 / 産霊 / 和 / 無教会. :self may scaffold first.
- {:organism/id "self.etzhayyim" :organism/kind :institutional :organism/label "etzhayyim עץ חיים (Tree of Life synthesis)" :organism/standing :historical-public :hist/subkind :tradition :hist/year-from 2026 :hist/year-to 2026 :hist/era :contemporary :hist/tradition [:christian :reformed :buddhist :shinto] :hist/dating-confidence :attested :mirror/is-mirror true :mirror/performer-type :tradition :mirror/disclaimer "観察像 — 自身の教義系譜の影響流入を datafy したもの (a map of this entity's own documented doctrinal inflows; not a claim of equivalence with its sources)" :influence/affect-class :reforming :hist/sourcing :representative}
+ {:organism/id "self.itonami" :organism/kind :institutional :organism/label "itonami עץ חיים (Tree of Life synthesis)" :organism/standing :historical-public :hist/subkind :tradition :hist/year-from 2026 :hist/year-to 2026 :hist/era :contemporary :hist/tradition [:christian :reformed :buddhist :shinto] :hist/dating-confidence :attested :mirror/is-mirror true :mirror/performer-type :tradition :mirror/disclaimer "観察像 — 自身の教義系譜の影響流入を datafy したもの (a map of this entity's own documented doctrinal inflows; not a claim of equivalence with its sources)" :influence/affect-class :reforming :hist/sourcing :representative}
 
  ;; ═════════════════════════════ :flow/* — forward influence 縁 (N5: from earlier → later) ═
  ;; :flow/signed-weight ∈ [-1,1]: + transmission/continuation, − reaction/opposition.
@@ -117,16 +117,16 @@
  {:flow/id "fl.shinto.kojiki"   :flow/kind :transmits   :flow/from "trad.shinto" :flow/to "doc.kojiki" :flow/signed-weight 0.8 :flow/strain 0.6 :flow/thermo-length 0.4 :flow/source :scholarship :flow/sourcing :representative}
  {:flow/id "fl.confucius.kojiki" :flow/kind :influences :flow/from "fig.confucius" :flow/to "doc.kojiki" :flow/signed-weight 0.3 :flow/strain 0.3 :flow/thermo-length 0.3 :flow/source :scholarship :flow/sourcing :representative}
 
- ;; ── etzhayyim synthesis inflows (the 産霊 receiving side; honest doctrinal genealogy) ──
- {:flow/id "fl.torah.self"      :flow/kind :cites       :flow/from "doc.torah" :flow/to "self.etzhayyim" :flow/signed-weight 0.6 :flow/strain 0.5 :flow/thermo-length 0.4 :flow/source :declared :flow/sourcing :representative}
- {:flow/id "fl.paul.self"       :flow/kind :cites       :flow/from "fig.paul" :flow/to "self.etzhayyim" :flow/signed-weight 0.5 :flow/strain 0.4 :flow/thermo-length 0.4 :flow/source :declared :flow/sourcing :representative}
- {:flow/id "fl.luther.self"     :flow/kind :reinterprets :flow/from "fig.luther" :flow/to "self.etzhayyim" :flow/signed-weight 0.7 :flow/strain 0.6 :flow/thermo-length 0.6 :flow/source :declared :flow/sourcing :representative}
- {:flow/id "fl.calvin.self"     :flow/kind :influences  :flow/from "fig.calvin" :flow/to "self.etzhayyim" :flow/signed-weight 0.6 :flow/strain 0.5 :flow/thermo-length 0.5 :flow/source :declared :flow/sourcing :representative}
- {:flow/id "fl.reformed.self"   :flow/kind :transmits   :flow/from "trad.reformed" :flow/to "self.etzhayyim" :flow/signed-weight 0.75 :flow/strain 0.7 :flow/thermo-length 0.6 :flow/source :declared :flow/sourcing :representative}
- {:flow/id "fl.buddha.self"     :flow/kind :reinterprets :flow/from "fig.buddha" :flow/to "self.etzhayyim" :flow/signed-weight 0.5 :flow/strain 0.6 :flow/thermo-length 0.6 :flow/source :declared :flow/sourcing :representative}
- {:flow/id "fl.nagarjuna.self"  :flow/kind :reinterprets :flow/from "fig.nagarjuna" :flow/to "self.etzhayyim" :flow/signed-weight 0.55 :flow/strain 0.7 :flow/thermo-length 0.7 :flow/source :declared :flow/sourcing :representative}
- {:flow/id "fl.dogen.self"      :flow/kind :influences  :flow/from "fig.dogen" :flow/to "self.etzhayyim" :flow/signed-weight 0.4 :flow/strain 0.4 :flow/thermo-length 0.4 :flow/source :declared :flow/sourcing :representative}
- {:flow/id "fl.shinto.self"     :flow/kind :synthesizes :flow/from "trad.shinto" :flow/to "self.etzhayyim" :flow/signed-weight 0.65 :flow/strain 0.6 :flow/thermo-length 0.5 :flow/source :declared :flow/sourcing :representative}
+ ;; ── itonami synthesis inflows (the 産霊 receiving side; honest doctrinal genealogy) ──
+ {:flow/id "fl.torah.self"      :flow/kind :cites       :flow/from "doc.torah" :flow/to "self.itonami" :flow/signed-weight 0.6 :flow/strain 0.5 :flow/thermo-length 0.4 :flow/source :declared :flow/sourcing :representative}
+ {:flow/id "fl.paul.self"       :flow/kind :cites       :flow/from "fig.paul" :flow/to "self.itonami" :flow/signed-weight 0.5 :flow/strain 0.4 :flow/thermo-length 0.4 :flow/source :declared :flow/sourcing :representative}
+ {:flow/id "fl.luther.self"     :flow/kind :reinterprets :flow/from "fig.luther" :flow/to "self.itonami" :flow/signed-weight 0.7 :flow/strain 0.6 :flow/thermo-length 0.6 :flow/source :declared :flow/sourcing :representative}
+ {:flow/id "fl.calvin.self"     :flow/kind :influences  :flow/from "fig.calvin" :flow/to "self.itonami" :flow/signed-weight 0.6 :flow/strain 0.5 :flow/thermo-length 0.5 :flow/source :declared :flow/sourcing :representative}
+ {:flow/id "fl.reformed.self"   :flow/kind :transmits   :flow/from "trad.reformed" :flow/to "self.itonami" :flow/signed-weight 0.75 :flow/strain 0.7 :flow/thermo-length 0.6 :flow/source :declared :flow/sourcing :representative}
+ {:flow/id "fl.buddha.self"     :flow/kind :reinterprets :flow/from "fig.buddha" :flow/to "self.itonami" :flow/signed-weight 0.5 :flow/strain 0.6 :flow/thermo-length 0.6 :flow/source :declared :flow/sourcing :representative}
+ {:flow/id "fl.nagarjuna.self"  :flow/kind :reinterprets :flow/from "fig.nagarjuna" :flow/to "self.itonami" :flow/signed-weight 0.55 :flow/strain 0.7 :flow/thermo-length 0.7 :flow/source :declared :flow/sourcing :representative}
+ {:flow/id "fl.dogen.self"      :flow/kind :influences  :flow/from "fig.dogen" :flow/to "self.itonami" :flow/signed-weight 0.4 :flow/strain 0.4 :flow/thermo-length 0.4 :flow/source :declared :flow/sourcing :representative}
+ {:flow/id "fl.shinto.self"     :flow/kind :synthesizes :flow/from "trad.shinto" :flow/to "self.itonami" :flow/signed-weight 0.65 :flow/strain 0.6 :flow/thermo-length 0.5 :flow/source :declared :flow/sourcing :representative}
 
  ;; ════════════════════════════════ WAVE 2 (ADR-2606061500) ════════════════════════════════
  ;; Gap-fill: non-Abrahamic-non-Buddhist traditions (Islam / Vedic-Hindu / Daoist / Confucian /
@@ -279,5 +279,5 @@
  {:flow/id "fl.freud.modsecular" :flow/kind :transmits :flow/from "fig.freud" :flow/to "trad.modern-secular" :flow/signed-weight 0.6 :flow/strain 0.6 :flow/thermo-length 0.5 :flow/source :scholarship :flow/sourcing :representative}
  {:flow/id "fl.wittgenstein.modsecular" :flow/kind :transmits :flow/from "fig.wittgenstein" :flow/to "trad.modern-secular" :flow/signed-weight 0.5 :flow/strain 0.5 :flow/thermo-length 0.5 :flow/source :scholarship :flow/sourcing :representative}
  {:flow/id "fl.gandhi.modsecular" :flow/kind :influences :flow/from "fig.gandhi" :flow/to "trad.modern-secular" :flow/signed-weight 0.4 :flow/strain 0.4 :flow/thermo-length 0.4 :flow/source :scholarship :flow/sourcing :representative}
- ;; modern technical substrate inflow to etzhayyim (honest, declared, light — NOT doctrinal)
- {:flow/id "fl.turing.self" :flow/kind :influences :flow/from "fig.turing" :flow/to "self.etzhayyim" :flow/signed-weight 0.3 :flow/strain 0.3 :flow/thermo-length 0.4 :flow/source :declared :flow/sourcing :representative}]
+ ;; modern technical substrate inflow to itonami (honest, declared, light — NOT doctrinal)
+ {:flow/id "fl.turing.self" :flow/kind :influences :flow/from "fig.turing" :flow/to "self.itonami" :flow/signed-weight 0.3 :flow/strain 0.3 :flow/thermo-length 0.4 :flow/source :declared :flow/sourcing :representative}]

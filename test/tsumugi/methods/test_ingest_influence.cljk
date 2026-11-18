@@ -36,7 +36,7 @@
   (is (= "doc.torah"       (ii/to-node-id "doc.torah" {})))
   (is (= "trad.jewish"     (ii/to-node-id "trad.jewish" {})))
   (is (= "event.exile"     (ii/to-node-id "event.exile" {})))
-  (is (= "self.etzhayyim"  (ii/to-node-id "self.etzhayyim" {}))))
+  (is (= "self.itonami"  (ii/to-node-id "self.itonami" {}))))
 
 (deftest to-node-id-looks-up-label
   (is (= "fig.aristotle" (ii/to-node-id "Aristotle" {"Aristotle" "fig.aristotle"}))))

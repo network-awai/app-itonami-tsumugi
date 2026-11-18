@@ -35,7 +35,7 @@
         (is (= 99 (get d ":tsumugi.cycle/harvested")))
         (is (= "GROW → next ring anchors on 525 frontier tips" (get d ":tsumugi.cycle/forage")))
         (is (close? 20.5128 (get d ":tsumugi.cycle/country-coverage-pct")))
-        (is (= "did:web:etzhayyim.com:actor:tsumugi" (get d ":tsumugi.cycle/published-by"))))
+        (is (= "did:web:itonami.cloud:actor:tsumugi" (get d ":tsumugi.cycle/published-by"))))
       (finally (.delete (java.io.File. log))))))
 
 (deftest beats-chain-into-a-dag

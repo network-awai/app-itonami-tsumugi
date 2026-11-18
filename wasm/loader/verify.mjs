@@ -3,8 +3,8 @@
 // (ADR-2606014500). Mirrors exactly what the browser loader (index.html) does,
 // but runs in Node so it is CI-runnable without a browser:
 //
-//   1. resolve the actor DID document (fixture here; live = etzhayyim.com/actor/<h>/did.json)
-//   2. find the EtzhayyimWasmComponent service → ipfs://<cid>
+//   1. resolve the actor DID document (fixture here; live = itonami.cloud/actor/<h>/did.json)
+//   2. find the ItonamiWasmComponent service → ipfs://<cid>
 //   3. fetch the WASM (local dist here; live = trustless IPFS gateway)
 //   4. VERIFY content integrity: recompute the IPFS CIDv1 of the bytes and
 //      assert it equals the CID the DID document points at (this is the trust
@@ -54,8 +54,8 @@ async function main() {
   pass(`DID resolved: ${did.id}`);
 
   // 2) find the WASM component service
-  const svc = (did.service || []).find((s) => s.type === "EtzhayyimWasmComponent");
-  if (!svc) fail("no EtzhayyimWasmComponent service in DID doc");
+  const svc = (did.service || []).find((s) => s.type === "ItonamiWasmComponent");
+  if (!svc) fail("no ItonamiWasmComponent service in DID doc");
   const cid = svc.serviceEndpoint.replace(/^ipfs:\/\//, "");
   pass(`WASM component service: ipfs://${cid}`);
 

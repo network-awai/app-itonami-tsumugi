@@ -4,7 +4,7 @@ Institutional power, influence-history, scale, and declared-banner observatory.
 It maps public structures and information flow without targeting people or
 issuing adjudicative scores.
 
-This is the standalone west repository `etzhayyim/com-etzhayyim-tsumugi`.
+This is the standalone west repository `itonami/app-itonami-tsumugi`.
 EDN is canonical; tracked JSON is confined to `wire/` as external fixtures and
 identity descriptors.
 
