@@ -4,9 +4,9 @@
  :rule "value = the extension the file had before the rename. A path ending in .clj.cljk or .cljs.cljk kept it in the name because both platform files existed (or the plain target was taken)."
  :origins
  {"run_tests.cljk" ".clj"
-  "src/etzhayyim/ie_flow/gate_adapter.cljk" ".cljc"
-  "src/etzhayyim/ie_flow/metrics.cljk" ".cljc"
-  "src/etzhayyim/ie_flow/score.cljk" ".cljc"
+  "src/itonami/ie_flow/gate_adapter.cljk" ".cljc"
+  "src/itonami/ie_flow/metrics.cljk" ".cljc"
+  "src/itonami/ie_flow/score.cljk" ".cljc"
   "src/tsumugi/cells/social_post/state_machine.cljk" ".cljc"
   "src/tsumugi/methods/analyze.cljk" ".cljc"
   "src/tsumugi/methods/analyze_banner.cljk" ".cljc"

@@ -1,10 +1,10 @@
-(ns etzhayyim.ie-flow.score
+(ns itonami.ie-flow.score
   "ie-flow.score — the composite INFORMATION-CONTROL score + the artificial-organism reward.
   ADR-2606212200 (on the ie-flow order calculus, ADR-2606211200).
 
   Every actor that embeds the ie-flow lifecycle is an INFORMATION-CONTROL ACTOR in the system +
   energy flow: it RECTIFIES (整流) scattered flow into returned order. This namespace turns an
-  actor's flow-state (etzhayyim.ie-flow.metrics) into ONE scalar — its active-inference 利得 — and
+  actor's flow-state (itonami.ie-flow.metrics) into ONE scalar — its active-inference 利得 — and
   folds the whole system of systems into the artificial organism's REWARD.
 
     info-control-score  ∈ 0..1   an actor's 利得: how well it rectifies flow into returned order,
@@ -20,7 +20,7 @@
   PURE + deterministic (no wall clock, no randomness) so a score is content-addressable and a
   scoreboard reproducible. Weights are DATA (score-weights.edn) — re-weighting the whole SoS is a
   data edit, not code. Stdlib + ie-flow.metrics only."
-  (:require [etzhayyim.ie-flow.metrics :as m]
+  (:require [itonami.ie-flow.metrics :as m]
             #?(:clj [kotoba.lang.edn :as edn])
             #?(:clj [kotoba.io :as io])))
 
@@ -149,7 +149,7 @@
    (defn load-weights
      "Read score-weights.edn → {:weights :squash-params :descendant}. Falls back to the baked
      defaults for any absent key. Pure read."
-     ([] (load-weights "70-tools/src/etzhayyim/ie_flow/score-weights.edn"))
+     ([] (load-weights "70-tools/src/itonami/ie_flow/score-weights.edn"))
      ([path]
       (let [cfg (try (edn/read-string (slurp path)) (catch Exception _ {}))]
         {:weights (merge default-weights (:weights cfg))

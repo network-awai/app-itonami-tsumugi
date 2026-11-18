@@ -1,4 +1,4 @@
-(ns etzhayyim.ie-flow.metrics
+(ns itonami.ie-flow.metrics
   "ie-flow.metrics — the ORDER calculus over an information-energy flow. ADR-2606211200.
 
   An actor (organism, mirror, concierge, factory…) is a dissipative structure that draws

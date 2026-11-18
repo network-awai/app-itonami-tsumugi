@@ -1,7 +1,7 @@
-{:did        "did:web:etzhayyim.github.io:com-etzhayyim-tsumugi"
- :handle     "tsumugi.etzhayyim.com"
+{:did        "did:web:itonami.github.io:app-itonami-tsumugi"
+ :handle     "tsumugi.itonami.cloud"
  :ipns-key   "tsumugi-actor"
- :graph-type "com.etzhayyim.tsumugi.graph"
+ :graph-type "cloud.itonami.tsumugi.graph"
  :published  "2026-06-28"
  :bundle [["data" "data"]
           ["wire/identity/did.json" "did.json"]

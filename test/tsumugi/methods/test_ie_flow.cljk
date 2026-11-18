@@ -2,7 +2,7 @@
 (ns tsumugi.methods.test-ie-flow
   (:require [kotoba.test :refer [deftest is run-tests]]
             [tsumugi.methods.ie-flow :as ief]
-            [etzhayyim.ie-flow.score :as score]))
+            [itonami.ie-flow.score :as score]))
 
 (deftest events-well-formed
   (let [evs (ief/flow-events)]

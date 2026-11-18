@@ -55,8 +55,8 @@
        (let [bridge-ids (set (map #(get % "ent") (get result "bridges")))]
          (is (contains? bridge-ids "org.party.jp.c")))
 
-       ;; H5 — etzhayyim's own banner is inbound-only (not a camp it recruits others into)
-       (let [self-camp (first (filter #(= (get % "banner") "banner.etzhayyim.charter")
+       ;; H5 — itonami's own banner is inbound-only (not a camp it recruits others into)
+       (let [self-camp (first (filter #(= (get % "banner") "banner.itonami.charter")
                                       (get result "camps")))]
          (is (= (get self-camp "member_count") 0)))
 

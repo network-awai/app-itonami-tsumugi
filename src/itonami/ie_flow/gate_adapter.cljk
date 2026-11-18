@@ -1,4 +1,4 @@
-(ns etzhayyim.ie-flow.gate-adapter
+(ns itonami.ie-flow.gate-adapter
   "ie-flow.gate-adapter — the shared boilerplate every 'gate / observatory' actor reuses to
   embed the information-energy flow (ADR-2606212200). The roster's verdict-gate + observatory
   actors (kafun / ugachi / busshi / …) all share the SAME shape: an assessment produces ROWS,
@@ -21,7 +21,7 @@
     :value-fn    row → the realised-order magnitude (volume rectified onto the route)
     :cost        per-row assessment cost (default 2.0; cheap — the actor only assesses)
   Every event: {:id :actor :source :target :type :volume :value :cost :risk 0.0 :agent? true}."
-  (:require [etzhayyim.ie-flow.metrics :as iem]
+  (:require [itonami.ie-flow.metrics :as iem]
             #?(:clj [kotoba.io :as io])))
 
 (def default-value-scale 100.0)

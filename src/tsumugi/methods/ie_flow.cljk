@@ -2,8 +2,8 @@
 ;; tsumugi 紡ぎ — ie-flow embedding (the SoS scoring leg) via the shared gate-adapter.
 (ns tsumugi.methods.ie-flow
   "ie_flow.cljc — tsumugi 紡ぎ embeds the information-energy flow lifecycle
-  (etzhayyim.ie-flow, ADR-2606211200 + score ADR-2606212200) via the SHARED
-  `etzhayyim.ie-flow.gate-adapter` (not a fork). tsumugi is an INFORMATION-CONTROL
+  (itonami.ie-flow, ADR-2606211200 + score ADR-2606212200) via the SHARED
+  `itonami.ie-flow.gate-adapter` (not a fork). tsumugi is an INFORMATION-CONTROL
   ACTOR: the scattered 取-HOLDING across public power-entities (held = the integral
   of incident edges, N1) is high-entropy disorder; tsumugi's spirit-in-physics weave
   is a RECTIFIER (整流) that folds that holding onto RELEASE-priority — concentrating
@@ -16,8 +16,8 @@
   SHARED gate-adapter. The flow ledger is the per-actor ie-flow record
   (80-data/ie-flow/tsumugi/, gitignored)."
   (:require [tsumugi.methods.analyze :as an]
-            [etzhayyim.ie-flow.gate-adapter :as ga]
-            [etzhayyim.ie-flow.metrics :as iem]
+            [itonami.ie-flow.gate-adapter :as ga]
+            [itonami.ie-flow.metrics :as iem]
             [kotoba.lang.text :as str]))
 
 (def default-seed "data/seed-power-graph.kotoba.edn")
